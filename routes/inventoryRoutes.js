@@ -12,6 +12,10 @@ router.post(
   inventoryController.createCategory,
 );
 
+router.post("/:category/:name/update", inventoryController.updateItem);
+
+router.post("/:category/:name/delete", inventoryController.deleteItem);
+
 router.get("/:category/:name", inventoryController.getItem);
 
 router.get("/:category", inventoryController.getCategory);

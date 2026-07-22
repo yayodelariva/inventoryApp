@@ -136,9 +136,35 @@ async function createCategory(req, res, next) {
   }
 }
 
+async function deleteItem(req, res, next) {
+  const { password } = req.body;
+
+  if (password !== process.env.ADMIN_PASSWORD) {
+    return res.status(401).send("Incorrect password.");
+  }
+
+  alert("success");
+
+  res.redirect(`/${req.params.category}`);
+}
+
+async function updateItem(req, res, next) {
+  const { password } = req.body;
+
+  if (password !== process.env.ADMIN_PASSWORD) {
+    return res.status(401).send("Incorrect password.");
+  }
+
+  // delete item...
+
+  res.redirect(`/${req.params.category}`);
+}
+
 module.exports = {
   renderHomepage,
   getCategory,
   getItem,
   createCategory,
+  deleteItem,
+  updateItem,
 };

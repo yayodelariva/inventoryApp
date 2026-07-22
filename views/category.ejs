@@ -30,7 +30,7 @@
   </div>
 <% } else { %>
 <% items.forEach((item) => { %>
-  <a class="card-item" href="/<%= category %>/<%= encodeURIComponent(item.name) %>">
+  <a class="card-item" href="/<%= category.slug %>/<%= encodeURIComponent(item.name) %>">
     <p><%= item.name %></p>
     <p>$<%= item.price %></p>
     <img class="card-image" src="<%= item.picture %>" alt="<%= item.name %>">
