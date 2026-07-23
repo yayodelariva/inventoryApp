@@ -218,3 +218,14 @@ img.card-image {
   flex-direction: column;
   gap: 30px;
 }
+
+.app-logo {
+  height: 55px; /* Same height as your old SVG */
+  width: auto;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.app-logo:hover {
+  transform: scale(1.05);
+}
