@@ -9,57 +9,64 @@
   </head>
   
   <body>
-    <%- include("partials/navbar") %>
-    <a href="/">Back to Home</a>
 
-  <div class="m-0">
+    <%- include("partials/navbar") %>
+
+<div class="category-background">
+  <div class="category-header-container">
   <div class="category-header">
     <h1><%= category.name %></h1>
     <button
-    class="btn btn-danger"
+    class=" category-header-btn btn btn-danger"
     data-bs-toggle="modal"
     data-bs-target="#passwordModal"
     data-action="delete-category"
     >
-    Delete Category
+    <i class="bi bi-trash"></i>
     </button>
   </div>
 
 </div>
 
 
-
-<div class="card-container">
-
-<% if (items.length === 0) { %>
-  <div class="alert alert-info">
-    No items have been added to this category yet.
-  </div>
-<% } else { %>
-<% items.forEach((item) => { %>
-  <a class="card-item" href="/<%= category.slug %>/<%= encodeURIComponent(item.name) %>">
-    <div class="item-info">
-      <p><%= item.name %></p>
-      <p>$<%= item.price %></p>
+      <div class="category-main-content">
+        <a href="/">
+          <button class="btn btn-light">Back</button>
+        </a>
+      
+        <div class="card-container">
+      
+        <% if (items.length === 0) { %>
+          <div class="alert alert-info">
+        No items have been added to this category yet.
+          </div>
+        <% } else { %>
+        <% items.forEach((item) => { %>
+          <a class="card-item" href="/<%= category.slug %>/<%= encodeURIComponent(item.name) %>">
+        <div class="item-info">
+          <p><%= item.name %></p>
+          <p>$<%= item.price %></p>
+        </div>
+        <img class="card-image" src="<%= item.picture %>" alt="<%= item.name %>">
+          </a>
+        <% }) %>
+        <% } %>
+      
+        <button
+          type="button"
+          class="btn btn-light"
+          data-bs-toggle="modal"
+          data-bs-target="#createCategoryModal"
+        >
+          <div class="create-category-text-container">
+        <span class="plus-symbol">+</span>
+        <span>Add an item</span>
+          </div>
+        </button>
+      
+        </div>
+      </div>
     </div>
-    <img class="card-image" src="<%= item.picture %>" alt="<%= item.name %>">
-  </a>
-<% }) %>
-<% } %>
-
-<button
-  type="button"
-  class="btn btn-light"
-  data-bs-toggle="modal"
-  data-bs-target="#createCategoryModal"
->
-  <div class="create-category-text-container">
-    <span class="plus-symbol">+</span>
-    <span>Add an item</span>
-  </div>
-</button>
-
-</div>
     <%- include("partials/itemModals.ejs") %>
         <%- include("createItemModal.ejs") %>
     <script
