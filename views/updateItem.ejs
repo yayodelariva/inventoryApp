@@ -1,0 +1,136 @@
+```ejs
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/styles/styles.css" />
+
+    <title>Update Item</title>
+  </head>
+
+  <body>
+
+    <%- include("partials/navbar") %>
+
+    <div class="container mt-5">
+
+      <h1 class="mb-4">Update Item</h1>
+
+      <% if (typeof errors !== "undefined" && errors.length > 0) { %>
+
+        <div class="alert alert-danger">
+          <ul class="mb-0">
+
+            <% errors.forEach(error => { %>
+              <li><%= error.msg %></li>
+            <% }) %>
+
+          </ul>
+        </div>
+
+      <% } %>
+
+      <form
+        action="/<%= item.slug %>/<%= encodeURIComponent(item.name) %>/update"
+        method="POST"
+      >
+
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            value="<%= item.name %>"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Price</label>
+
+          <input
+            type="number"
+            class="form-control"
+            step="0.01"
+            min="0"
+            name="price"
+            value="<%= item.price %>"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Picture URL</label>
+
+          <input
+            type="url"
+            class="form-control"
+            name="picture"
+            value="<%= item.picture %>"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+
+          <textarea
+            class="form-control"
+            rows="5"
+            name="description"
+          ><%= item.description %></textarea>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label">Category</label>
+
+          <select
+            class="form-select"
+            name="categoryId"
+          >
+
+            <% categories.forEach(category => { %>
+
+              <option
+                value="<%= category.id %>"
+                <%= category.id === item.category_id ? "selected" : "" %>
+              >
+                <%= category.name %>
+              </option>
+
+            <% }) %>
+
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+        >
+          Save Changes
+        </button>
+
+        <a
+          href="/<%= item.slug %>/<%= encodeURIComponent(item.name) %>"
+          class="btn btn-secondary"
+        >
+          Cancel
+        </a>
+
+      </form>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>
+```

@@ -6,9 +6,18 @@ passwordModal.addEventListener("show.bs.modal", (event) => {
 
   const action = button.dataset.action;
 
-  if (action === "update") {
-    passwordForm.action = window.location.pathname + "/update";
-  } else {
-    passwordForm.action = window.location.pathname + "/delete";
+  switch (action) {
+    case "update":
+      passwordForm.action = window.location.pathname + "/update/verify";
+      break;
+
+    case "delete":
+      passwordForm.action = window.location.pathname + "/delete";
+      break;
+
+    case "delete-category":
+      passwordForm.action =
+        "/categories/" + window.location.pathname.split("/")[1] + "/delete";
+      break;
   }
 });

@@ -14,14 +14,6 @@
   </head>
   <body>
     <%- include("partials/navbar") %>
-<button
-  type="button"
-  class="btn btn-primary"
-  data-bs-toggle="modal"
-  data-bs-target="#createCategoryModal"
->
-  Create Category
-</button>
 
 <div
   class="modal fade"
@@ -91,20 +83,32 @@
 </div>
 
     </form>
-    <div class="main-content-layout">
-      <%- include("partials/sidebar") %>
       <div class="category-container">
 
   <!-- category grid -->
 <% categories.forEach(category => { %>
 
-<a class="category-item" href="/<%= category.slug %>">
-  <%= category.name %>
+<a
+  class="category-item"
+  href="/<%= category.slug %>"
+  style="background-image: url('<%= category.picture %>')"
+>
+  <span><%= category.name %></span>
 </a>
 
 <% }) %>
+<button
+  type="button"
+  class="btn btn-light"
+  data-bs-toggle="modal"
+  data-bs-target="#createCategoryModal"
+>
+  <div class="create-category-text-container">
+    <span class="plus-symbol">+</span>
+    <span>Create Category</span>
+  </div>
+</button>
       </div>
-    </div>
     <!-- Create Category Modal -->
     <%- include("partials/createCategoryModal") %>
     <!-- Bootstrap scripts -->
