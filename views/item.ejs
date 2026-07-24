@@ -14,36 +14,41 @@
   </head>
   <body>
     <%- include("partials/navbar") %>
-    <a href="/<%= category %>"> ← Back</a>
-    <div class="main-content-layout-item">
-      <div class="item-container">
-        <h1><%= item.name %></h1>
-        <p>Price: $<%= item.price %></p>
-        <img
-          class="card-image"
-          src="<%= item.picture %>"
-          alt="<%= item.name %>"
-        />
-        <p>Description: <%= item.description %></p>
-      </div>
-      <div class="item-button-container">
-        <button
-          class="btn btn-warning"
-          data-bs-toggle="modal"
-          data-bs-target="#passwordModal"
-          data-action="update"
-        >
-          Update
-        </button>
+    <div class="item-page-background">
+      <div class="main-content-layout-item">
+        <div class="item-container">
+          <a href="/<%= category %>">
+            <button class="btn btn-light">Back to <%= category%></button>
+          </a>
+          <h1><%= item.name %></h1>
+          <p>Price: $<%= item.price %></p>
+          <img
+            class="card-image"
+            src="<%= item.picture %>"
+            alt="<%= item.name %>"
+          />
+          <p>Description: <%= item.description %></p>
+        </div>
 
-        <button
-          class="btn btn-danger"
-          data-bs-toggle="modal"
-          data-bs-target="#passwordModal"
-          data-action="delete"
-        >
-          Delete
-        </button>
+        <div class="item-button-container">
+          <button
+            class="btn btn-warning"
+            data-bs-toggle="modal"
+            data-bs-target="#passwordModal"
+            data-action="update"
+          >
+            Update
+          </button>
+
+          <button
+            class="btn btn-danger"
+            data-bs-toggle="modal"
+            data-bs-target="#passwordModal"
+            data-action="delete"
+          >
+            Delete
+          </button>
+        </div>
       </div>
     </div>
     <%- include("partials/itemModals.ejs") %>
