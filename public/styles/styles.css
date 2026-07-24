@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import "bootstrap/_functions.scss";
+@import "bootstrap/_variables.scss";
+@import "bootstrap/_mixins.scss";
 
 html,
 body {
@@ -6,7 +9,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: #eaf2ed;
+  --bs-body-bg: #eaf2ed;
 }
 
 .card-container {
@@ -241,7 +244,7 @@ img.card-image {
   padding-top: 2rem;
   padding-bottom: 2rem;
   background-color: #eaf2ed;
-  height: 100vh;
+  height: auto;
 }
 
 .main-content-layout-item {
@@ -255,6 +258,7 @@ img.card-image {
   min-width: 800px;
   border: solid 1px #e3e2e2;
   border-radius: 1%;
+  padding-top: 2rem;
 }
 
 .item-container {
