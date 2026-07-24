@@ -2,5 +2,6 @@ Inventory application part of The Odin Project Curriculum. The purpose of this p
 
 Tech stack: Express, PostgreSQL, Node.js, dotenv, EJS, pg, express-validatorm, dotenv, nodemon, bootstrap
 
-Live demo: WIP
+Live demo: inventoryapp-yayodelariva.up.railway.app
+
 # inventoryApp
